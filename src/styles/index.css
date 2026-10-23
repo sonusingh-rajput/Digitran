@@ -1,0 +1,132 @@
+@import './futurense.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "DM Serif Text Italic";
+  src: url("https://cdn.prod.website-files.com/687e11ae076e4c47d227af38/687e12ee375ee0555ef0e47e_DMSerifText-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --brand-orange: #F6A305;
+  --brand-purple: #F6A305;
+  --brand-purple-dark: #d98e04;
+  --bg-dark: #000000;
+  --bg-card: rgba(15, 15, 15, 0.85);
+  --border-glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #F6A305;
+  color: #000000;
+}
+
+.font-secondary {
+  font-family: "DM Serif Text Italic", Georgia, serif !important;
+  font-style: italic !important;
+}
+
+/* Glassmorphism card styles */
+.glass-panel {
+  background: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(246, 163, 5, 0.5);
+  box-shadow: 0 12px 30px -10px rgba(246, 163, 5, 0.25);
+}
+
+/* Marquee scroll animation */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-reverse 35s linear infinite;
+}
+.marquee-track:hover, .marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-scroll-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Custom glow backgrounds */
+.glow-purple {
+  background: radial-gradient(circle, rgba(246, 163, 5, 0.18) 0%, rgba(246, 163, 5, 0.05) 50%, transparent 75%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 40%, #F6A305 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F6A305;
+}
+
+/* Logo Hover State: White by default, original color on hover (no background) */
+#navbar-logo-container {
+  background-color: transparent !important;
+  transition: all 0.25s ease-in-out;
+}
+#navbar-logo-container:hover {
+  background-color: transparent !important;
+}
+#navbar-logo-container:hover #navbar-logo-img {
+  filter: none !important;
+}
+
+/* Contact Button Hover State */
+#navbar-contact-button {
+  transition: all 0.2s ease-in-out;
+}
+#navbar-contact-button:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
